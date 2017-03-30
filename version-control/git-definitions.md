@@ -1,7 +1,5 @@
 # Git Definitions
 
-**Instructions: ** Define each of the following Git concepts.
-
 * What is version control?  Why is it useful?
 
 Version control allows you to easily keep track of changes in code and rollback changes when nessesary.
