@@ -1,0 +1,28 @@
+h1 {
+	text-align: center;
+}
+
+.octopus-tank {
+	position: relative;
+	margin: 50px auto 0;
+	width: 400px;
+	height: 400px;
+}
+
+#octopus, #hat, #glasses {
+	position: absolute;
+}
+
+#octopus {
+	margin-top: 55px;
+	left: 80px;
+}
+
+#hat {
+	left: 60px;
+}
+
+#glasses {
+	top: 212px;
+	left: 122px;
+}
