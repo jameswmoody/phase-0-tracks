@@ -1,0 +1,15 @@
+
+-If elevator door is already open:
+	-Move inside of elevator.
+-Otherewise:
+	-Push button to call elevator.
+
+-Prompt user for floor.
+
+-For each floor button on the elevator:
+	-If button floor matches user input:
+		-Push floor button.
+	-Otherwise:
+		-Proceed to next floor button.
+
+-Leave elevator when user floor is reached.
