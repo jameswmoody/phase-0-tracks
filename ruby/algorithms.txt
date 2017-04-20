@@ -1,3 +1,5 @@
+# Release 0
+# Elevator Robot Pseudocode
 
 -If elevator door is already open:
 	-Move inside of elevator.
@@ -13,3 +15,20 @@
 		-Proceed to next floor button.
 
 -Leave elevator when user floor is reached.
+
+# Release 1
+# Ordering Pizza
+
+-If you are hungry:
+	-If you are in the mood for pizza:
+		-Look for "Jet's Pizza" in phone contacts
+		-Call "Jet's Pizza"
+		-Order a large 8 corner pizza with pepperoni
+		-Provide address for delivery
+	-Otherwise:
+		-Find something else to eat
+-Otherwise:
+	-Wait until you are hungry
+
+-Until pizza is delivered:
+	-Watch TV
