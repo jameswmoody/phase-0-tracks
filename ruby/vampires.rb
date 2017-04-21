@@ -1,7 +1,7 @@
 # Written by James W Moody
 
 def employee_info
-  puts "How many employees will be checked?"
+  puts "How many employees will be checked? (Numeric characters only!)"
   employees_to_check = gets.chomp.to_i
 
   counter = 1
@@ -46,12 +46,23 @@ def employee_info
       employee_insurance_b = "Unclear"
     end
 
+    puts "Do you have any allergies? List them seperated by a comma (,) and type done when finished"
+    allergies = gets.chomp
+
+    if allergies.include? "sunshine"
+      allergic_to_sun = true
+    end
+
     vampire_status = "init" # Intializes employee's vampire status
 
     current_year = Time.now.year # Gets the current year to compare with employee_birth_year
 
     if current_year - employee_birth_year == employee_age # Checks if employee age matches input
       employee_age_matches = true
+    elsif current_year - employee_birth_year != employee_age
+      employee_age_matches = false
+    else
+      employee_age_matches = "Unclear"
     end
 
     if employee_garlic_b && employee_insurance_b # Checks preferences for garlic and insurance
@@ -59,17 +70,17 @@ def employee_info
     elsif !employee_garlic_b && !employee_insurance_b
       garlic_and_insurance = false
     elsif !employee_garlic_b && employee_insurance_b
-      garlic_and_insurance = "split"
+      garlic_and_insurance = "Split"
     elsif employee_garlic_b && !employee_insurance_b
-      garlic_and_insurance = "split"
+      garlic_and_insurance = "Split"
     else
       garlic_and_insurance = "Unclear"
     end
 
     case
-    when employee_age_matches && garlic_and_insurance
+    when employee_age_matches && garlic_and_insurance && !allergic_to_sun
       vampire_status = "#{employee_name} is probably not a vampire."
-    when !employee_age_matches && garlic_and_insurance == "split"
+    when (!employee_age_matches && garlic_and_insurance == "Split") || allergic_to_sun
       vampire_status = "#{employee_name} is probably a vampire."
     when !employee_age_matches && !garlic_and_insurance
       vampire_status = "#{employee_name} is almost certainly a vampire."
