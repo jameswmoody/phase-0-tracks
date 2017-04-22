@@ -1,0 +1,44 @@
+body{
+    font-family: Helvetica;
+    background-color: #CFE8FF;
+}
+
+footer{
+  display: block;
+  clear: both;
+  text-align: center;
+  padding: 10px;
+}
+
+h1{
+  text-align: center;
+}
+
+.column-1{
+  background-color: #BDD4EA;
+  border-radius: 5px;
+  display: inline-block;
+  width: 42%;
+  vertical-align: top;
+  margin: 15px;
+  padding: 10px;
+  float: left;
+}
+
+.column-2{
+  background-color: #BDD4EA;
+  border-radius: 5px;
+  display: inline-block;
+  width: 42%;
+  vertical-align: top;
+  margin: 15px;
+  padding: 10px;
+  float:right;
+}
+
+#pic {
+  width: 100px;
+  display: inline-block;
+  margin-left: 45%;
+  margin-right: 50%;
+}
