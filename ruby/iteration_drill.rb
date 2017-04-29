@@ -7,19 +7,60 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 # ----
 
+  p zombie_apocalypse_supplies.join("*")
+
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
+  # alphabetized_supplize = []
+  #
+  # zombie_apocalypse_supplies.each do |item|
+  #   if zombie_apocalypse_supplies[0][0] == alphabet[0]
+  #     alphabetized_supplize << zombie_apocalypse_supplies[0]
+  # end
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
 # For instance: are boots in your list of supplies?
 # ----
 
+def item_match(item)
+
+  item_matches = false
+
+  zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
+                                "shotgun", "compass", "CB radio", "batteries"]
+
+  zombie_apocalypse_supplies.each { |supplies|
+    if item == supplies
+      item_matches = true
+    end
+  }
+
+  if item_matches
+    p "Good news! #{item} is in the zombie_apocalypse_supplies array."
+  else
+    p "Sorry, no match."
+  end
+end
+
+item_match("boots")
+item_match("CB radio")
+
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5. Do not use any special built-in methods.
 # ----
+
+light_packing = []
+
+zombie_apocalypse_supplies.each do |item|
+  if zombie_apocalypse_supplies.index(item) < 5
+    light_packing << item
+  end
+end
+
+p light_packing
 
 # 5. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
@@ -29,6 +70,9 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
+combined_supplies = (zombie_apocalypse_supplies << other_survivor_supplies).flatten.uniq 
+
+p combined_supplies
 
 # Hash Drills
 
