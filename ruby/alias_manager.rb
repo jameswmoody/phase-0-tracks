@@ -8,9 +8,17 @@
 
 def alias_genrator
   puts "Welcome to the super secret alias name generator. What is your full name?"
-  full_name = gets.chomp.downcase
+  real_name = gets.chomp.downcase
 
-  name_letters = full_name.split('') # Turns user input into array of letters
+  real_name_array = real_name.split(' ') # Turn name into array
+
+  real_first_name = real_name_array[0].capitalize # Gets and capitalizes first string in full_name_array
+  real_last_name = real_name_array.last.capitalize
+
+  real_names = []
+  real_names << real_first_name + " " + real_last_name # Stores real name to an array
+
+  name_letters = real_name.split('') # Turns user input into array of letters
 
   vowels = ["a", "e", "i", "o", "u"]
   consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z" ]
@@ -41,7 +49,7 @@ def alias_genrator
     index+=1
   end
 
-  new_full_name = name_letters.join('').split(' ') # Joins the new letters of name_letters and splits it into two stings
+  new_full_name = name_letters.join('').split(' ') # Joins the new letters of name_letters and splits it into two strings
 
   # In case spy's real name includes a middle name
   first_name = new_full_name[0].capitalize # Gets and capitalizes first string in new_full_name
@@ -49,7 +57,13 @@ def alias_genrator
 
   alias_name = last_name + " " + first_name
 
+  spy_names = []
+  spy_names << alias_name # Stores alias into an array
+
   p "Great, your cool new alias is #{alias_name}!"
+
+  p real_names
+  p spy_names
 end
 
 alias_genrator
