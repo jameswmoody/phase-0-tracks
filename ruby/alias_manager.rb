@@ -19,8 +19,8 @@ def alias_genrator
 
     real_name_array = real_name.split(' ') # Turn name into array
 
-    real_first_name = real_name_array[0].capitalize # Gets and capitalizes first string in full_name_array
-    real_last_name = real_name_array.last.capitalize
+    real_first_name = real_name_array[0].capitalize # Gets and capitalizes first string in real_first_name
+    real_last_name = real_name_array.last.capitalize # Gets and capitalizes last string in real_first_name
 
     real_names << real_first_name + " " + real_last_name # Stores real name to an array
 
