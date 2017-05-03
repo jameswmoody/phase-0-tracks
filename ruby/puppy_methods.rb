@@ -20,6 +20,10 @@ class Puppy
   def play_dead
     puts "......"
   end
+
+  def initialize
+    puts "Initializing new puppy instance..."
+  end
 end
 
 puppy = Puppy.new
