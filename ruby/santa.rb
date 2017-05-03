@@ -1,4 +1,7 @@
 class Santa
+  attr_reader :ethnicity # Gives read access to ethnicity
+  attr_accessor :age, :gender #Gives read/write access to age and gender
+
   def initialize(gender, ethnicity)
     @gender = gender
     @ethnicity = ethnicity
@@ -19,16 +22,6 @@ class Santa
     puts "Ethnicity: #{@ethnicity}"
   end
 
-  # Getter methods
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
-  end
-
-  # Setter methods
   def celebrate_birthday
     @age+=1
   end
@@ -38,28 +31,17 @@ class Santa
     @reindeer_ranking.push(bad_reindeer)
   end
 
-  def gender=(new_gender)
-    @gender = new_gender
-  end
 end
 
+genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-# Driver code
-santa = Santa.new("male", "black")
-
-santa.about
-santa.speak
-santa.eat_milk_and_cookies("mint")
-santa.age
-santa.ethnicity
-santa.celebrate_birthday
-santa.get_mad_at("Vixen")
-santa.gender = "zim"
-
-
-santa.celebrate_birthday
-
-santas = []
-santas << santa
-
-p santas
+counter = 0
+while counter < 1000
+  santa = Santa.new(genders.sample, ethnicities.sample)
+  santa.age = rand(0...140)
+  p santa.age
+  p santa.ethnicity
+  p santa.gender
+  counter+=1
+end
