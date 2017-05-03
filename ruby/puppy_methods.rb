@@ -33,3 +33,27 @@ puppy.speak(5)
 puppy.rollover
 puppy.dog_years(10)
 puppy.play_dead
+
+class Basketball_player
+  def shoots
+    puts "Shoots the ball"
+  end
+
+  def dunks
+    puts "Dunks the ball"
+  end
+end
+
+counter = 0
+team = []
+
+while counter < 50
+  player = Basketball_player.new
+  team << player
+  counter+=1
+end
+
+team.each do |player|
+  player.shoots
+  player.dunks
+end
