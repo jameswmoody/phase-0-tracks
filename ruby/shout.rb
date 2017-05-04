@@ -1,12 +1,36 @@
+# module Shout
+#   def self.yell_angrily(words)
+#     words + "!!!" + " :("
+#   end
+#
+#   def self.yelling_happily(words)
+#     words + "!!!" + " :)"
+#   end
+# end
+#
+# p Shout.yell_angrily("I hate the snow")
+# p Shout.yelling_happily("I just won the lottery")
+
 module Shout
-  def self.yell_angrily(words)
+  def yell_angrily(words)
     words + "!!!" + " :("
   end
 
-  def self.yelling_happily(words)
+  def yelling_happily(words)
     words + "!!!" + " :)"
   end
 end
 
-p Shout.yell_angrily("I hate the snow")
-p Shout.yelling_happily("I just won the lottery")
+class Politician
+  include Shout
+end
+
+class Announcer
+  include Shout
+end
+
+congressman = Politician.new
+p congressman.yell_angrily("You lie")
+
+cubs_radio_annoucer = Announcer.new
+p cubs_radio_annoucer.yelling_happily("Home run")
