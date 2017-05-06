@@ -70,3 +70,27 @@ p add_to_list(grocery_list, "ice cream", 4)
 p remove_item(grocery_list, "lemonade")
 p update_quantity(grocery_list, "ice cream", 1)
 print_list(grocery_list)
+
+# Reflection
+#
+# Pseudocoding has been a challenge for me but I definately learned from this
+# project that it certainly helps to have a roadmap to follow while building
+# things out.
+#
+# I think that in the challenge it was more helpful to use a hash since we needed
+# to have both an item and a quantity. It was pretty easy to translate this into
+#  a key/value pair.
+#
+# A method will return the result of the last line of code within the method. It
+# was important to keep this in mind for this challenge since we need to make
+# sure a few of our methods returned a particular thing.
+#
+# Strings, arrays, hashes, and booleans are some of the things that can be passed
+# as an argument within a method.
+#
+# We learned that in order to pass data between methods, you must set the data
+# from one method to a variable that can then be referenced within another variable.
+#
+# I don't think there was much that was very confusing about this challenge. I think
+# it will mostly come down to getting more comfortable and familar with these concepts
+# so that it becomes second nature.
