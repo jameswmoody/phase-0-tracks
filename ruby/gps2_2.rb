@@ -32,3 +32,34 @@
 # steps:
   # For each item in list puts "Item Name: Quantity"
 # output: "Item Name: Quantity"
+
+def create_list(list)
+  grocery_list = {}
+  split_list = list.split
+
+  split_list.each do |item|
+    grocery_list[item] = 1
+  end
+  print_list(grocery_list)
+end
+
+def add_to_list(list, item, quantity = 1)
+  list[item] = quantity
+  list
+end
+
+def remove_item(list, item)
+  list.delete(item)
+  list
+end
+
+def update_quantity(list, item, quantity)
+  list[item] = quantity
+  list
+end
+
+def print_list(list)
+  list.each do |item, quantity|
+    puts "#{item}: #{quantity}"
+  end
+end
