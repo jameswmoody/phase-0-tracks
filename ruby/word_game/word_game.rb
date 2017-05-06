@@ -43,9 +43,9 @@ class WordGame
   def out_of_guesses
     if @guessed_letters.length > @secret_word.length
       puts "YOU LOSE!"
-      @guessed_letters.length > @secret_word.length
+      return true
     else
-      @guessed_letters.length > @secret_word.length
+      return false
     end
   end
 
