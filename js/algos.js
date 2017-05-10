@@ -4,7 +4,7 @@
 //   -For each string of the array:
 //     -If the current string's length is greater than 'longestString':
 //       -Store current string in 'longestString'
-//   -Print 'longestString'
+//   -Return 'longestString'
 
 function longestPhrase(phrases) {
   var longestString = phrases[0];
@@ -23,15 +23,15 @@ function longestPhrase(phrases) {
 //     -For each key in objectTwo:
 //       -If the current objectOne key is equal to the current objectTwo key:
 //         -Set 'matchDetected' to 'true'
-//   -Print 'matchDetected'
+//   -Return 'matchDetected'
 
 function compareObjects(objectOne, objectTwo) {
   var matchDetected = false;
+  var counter = 0;
 
-  for (var x = 0; x < objectOne.length; x++) {
-    console.log(objectOne);
-    for (var y = 0; y < objectTwo.length; y++) {
-      if (objectOne[x] == objectTwo[y]) {
+  for (var x = 0; x < Object.keys(objectOne).length; x++) {
+    for (var y = 0; y < Object.keys(objectTwo).length; y++) {
+      if (Object.keys(objectOne)[x] == Object.keys(objectTwo)[y]) {
         matchDetected = true;
       }
     }
@@ -43,9 +43,13 @@ function compareObjects(objectOne, objectTwo) {
 //   -Create an empty array called 'wordBank'
 //   -Create a string of possible letters
 //   -For as many times as the number of the integer is:
-//     -Generate a random word that is between 1 and 10 characters long
-//     -Add random word to 'wordBank'
-//   -Print 'wordBank'
+//    -Assign a variable 'randomWord' to an empty string
+//    -Assign a variable 'wordLength' to a number 1-10
+//    -For the length of wordLength:
+//      -Pick a random letter
+//      -Add letter to 'randomWord' string
+//    -Add random word to 'wordBank'
+//  -Return 'wordBank'
 
 function randomData(numberOfWords) {
   var wordBank = [];
@@ -61,12 +65,11 @@ function randomData(numberOfWords) {
     }
     wordBank.push(randomWord);
   }
-  console.log(wordBank);
   return wordBank
 }
 
 // Driver Code
-// longestPhrase(["long phrase","longest phrase","longer phrase"]);
-// compareObjects({age: 54}, {age: 54});
-
-console.log(longestPhrase(randomData(10)));
+console.log(longestPhrase(["long phrase","longest phrase","longer phrase"]));
+console.log(compareObjects({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+console.log(randomData(3));
+console.log(longestPhrase(randomData(5)));
