@@ -27,7 +27,6 @@ function longestPhrase(phrases) {
 
 function compareObjects(objectOne, objectTwo) {
   var matchDetected = false;
-  var counter = 0;
 
   for (var x = 0; x < Object.keys(objectOne).length; x++) {
     for (var y = 0; y < Object.keys(objectTwo).length; y++) {
@@ -69,7 +68,11 @@ function randomData(numberOfWords) {
 }
 
 // Driver Code
-console.log(longestPhrase(["long phrase","longest phrase","longer phrase"]));
-console.log(compareObjects({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
-console.log(randomData(3));
-console.log(longestPhrase(randomData(5)));
+// console.log(longestPhrase(["long phrase","longest phrase","longer phrase"]));
+// console.log(compareObjects({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+// console.log(randomData(3));
+// console.log(longestPhrase(randomData(5)));
+
+var objectOne = {name: "Steven", age: 54};
+
+console.log(Object.keys(objectOne));
