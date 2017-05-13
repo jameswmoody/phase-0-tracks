@@ -13,7 +13,6 @@ require_relative 'state_data'
 
 class VirusPredictor
 
-
   # Will create a new instance of 'VirusPredictor' class with attributes that are passed
   # as arguements
   def initialize(state_of_origin, population_density, population)
@@ -75,6 +74,17 @@ class VirusPredictor
   end
 
 end
+
+# Iterate through STATE_DATA hash to pass through name, density, and population
+# Create new instance of VirusPredictor using arguements
+#
+#
+
+STATE_DATA.each do |state, population_data|
+  state = VirusPredictor.new(state, population_data[:population_density], population_data[:population])
+  state.virus_effects
+end
+
 
 #=======================================================================
 
