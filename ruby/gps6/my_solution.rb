@@ -4,7 +4,10 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
+# 'require_relative' allow you to access data from an external file.
+# This can be useful when it comes to file organization. While 'require'
+# needs an exact path to the file, 'require_relative' will allow you to easily
+# access a file within the same directory.
 #
 require_relative 'state_data'
 
