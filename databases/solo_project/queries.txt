@@ -1,0 +1,111 @@
+Input:
+
+SELECT * FROM chicagoans;
+
+Output:
+
+1|Michael Jordan|2650|Michigan Ave|1|true
+2|Oprah Winfrey|222|Randolph St|5|true
+3|Al Capone|2454|Canel St|4|false
+4|Barack Obama|49287|53rd St|3|true
+5|James Moody|2901|Lakeview Ave|2|true
+6|Trixie McGee|222|North Ave|1|true
+7|Bob Jones|2373|Diversey Ave|1|true
+8|Curtis Mayfield|4312|Michigan Ave|4|false
+9|John Smith|97841|Addison Ave|2|true
+10|Terry Shaw|5245|Montrose Ave|3|false
+11|Rebecca Loew|2345|Diversey Ave|5|true
+12|Scott Dirks|98345|26th St|6|false
+13|Vince Argento|4592|Main Ave|1|true
+14|Kelly Young|74532|Sheridan Ave|2|true
+15|Joe Dyer|98423|Clark St|3|false
+16|Frank White|24593|Fullerton Ave|4|true
+17|Chris Wallace|1432|Garfield Ave|5|true
+18|Nassir Jones|6435|79th St|6|false
+19|Curtis Jackson|35832|Wilson Ave|1|true
+
+Input:
+
+UPDATE chicagoans SET name="Becky Loew" WHERE id="11";
+
+Output:
+
+11|Becky Loew|2345|Diversey Ave|5|true
+
+Input:
+
+SELECT * FROM chicagoans, neighborhoods WHERE chicagoans.neighborhood_zone_id = neighborhoods.zone_id;
+
+Output:
+
+1|Michael Jordan|2650|Michigan Ave|1|true|1|Lincoln Park
+2|Oprah Winfrey|222|Randolph St|5|true|5|West Loop
+3|Al Capone|2454|Canel St|4|false|4|Bronzeville
+4|Barack Obama|49287|53rd St|3|true|3|Hyde Park
+5|James Moody|2901|Lakeview Ave|2|true|2|Lakeview
+6|Trixie McGee|222|North Ave|1|true|1|Lincoln Park
+7|Bob Jones|2373|Diversey Ave|1|true|1|Lincoln Park
+8|Curtis Mayfield|4312|Michigan Ave|4|false|4|Bronzeville
+9|John Smith|97841|Addison Ave|2|true|2|Lakeview
+10|Terry Shaw|5245|Montrose Ave|3|false|3|Hyde Park
+11|Becky Loew|2345|Diversey Ave|5|true|5|West Loop
+12|Scott Dirks|98345|26th St|6|false|6|Andersonville
+13|Vince Argento|4592|Main Ave|1|true|1|Lincoln Park
+14|Kelly Young|74532|Sheridan Ave|2|true|2|Lakeview
+15|Joe Dyer|98423|Clark St|3|false|3|Hyde Park
+16|Frank White|24593|Fullerton Ave|4|true|4|Bronzeville
+17|Chris Wallace|1432|Garfield Ave|5|true|5|West Loop
+18|Nassir Jones|6435|79th St|6|false|6|Andersonville
+19|Curtis Jackson|35832|Wilson Ave|1|true|1|Lincoln Park
+
+Input:
+
+SELECT chicagoans.name, neighborhoods.name, chicagoans.taxes_paid FROM chicagoans JOIN neighborhoods ON chicagoans.neighborhood_zone_id  = neighborhoods.zone_id;
+
+Output:
+
+Michael Jordan|Lincoln Park|true
+Oprah Winfrey|West Loop|true
+Al Capone|Bronzeville|false
+Barack Obama|Hyde Park|true
+James Moody|Lakeview|true
+Trixie McGee|Lincoln Park|true
+Bob Jones|Lincoln Park|true
+Curtis Mayfield|Bronzeville|false
+John Smith|Lakeview|true
+Terry Shaw|Hyde Park|false
+Becky Loew|West Loop|true
+Scott Dirks|Andersonville|false
+Vince Argento|Lincoln Park|true
+Kelly Young|Lakeview|true
+Joe Dyer|Hyde Park|false
+Frank White|Bronzeville|true
+Chris Wallace|West Loop|true
+Nassir Jones|Andersonville|false
+Curtis Jackson|Lincoln Park|true
+
+Input:
+
+DELETE FROM chicagoans WHERE street_name = "Canel St";
+
+Output:
+
+1|Michael Jordan|2650|Michigan Ave|1|true
+2|Oprah Winfrey|222|Randolph St|5|true
+4|Barack Obama|49287|53rd St|3|true
+5|James Moody|2901|Lakeview Ave|2|true
+6|Trixie McGee|222|North Ave|1|true
+7|Bob Jones|2373|Diversey Ave|1|true
+8|Curtis Mayfield|4312|Michigan Ave|4|false
+9|John Smith|97841|Addison Ave|2|true
+10|Terry Shaw|5245|Montrose Ave|3|false
+11|Becky Loew|2345|Diversey Ave|5|true
+12|Scott Dirks|98345|26th St|6|false
+13|Vince Argento|4592|Main Ave|1|true
+14|Kelly Young|74532|Sheridan Ave|2|true
+15|Joe Dyer|98423|Clark St|3|false
+16|Frank White|24593|Fullerton Ave|4|true
+17|Chris Wallace|1432|Garfield Ave|5|true
+18|Nassir Jones|6435|79th St|6|false
+19|Curtis Jackson|35832|Wilson Ave|1|true
+
