@@ -1,0 +1,15 @@
+SELECT *
+FROM users
+    JOIN reviews ON reviews.id = users.id
+    JOIN businesses ON businesses.id = users.id
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment
+FROM users
+    JOIN reviews ON reviews.user_id = users.id
+    JOIN businesses ON businesses.id = reviews.business_id
+
+SELECT *
+FROM businesses
+    JOIN users ON users.id = reviews.user_id
+    JOIN reviews ON reviews.business_id = businesses.id
+WHERE businesses.name = "The Beagle Nightclub"
