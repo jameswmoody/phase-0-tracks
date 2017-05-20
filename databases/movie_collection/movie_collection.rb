@@ -41,49 +41,25 @@ def all_movies(database)
   end
 end
 
-def movie_title_search(database, title)
-  results = database.execute("SELECT * FROM movies WHERE title = ?", [title])
-
-  if results.empty?
-    puts "No results found, try again."
+def movie_search(database, type, keyword)
+  case type
+  when "title"
+    results = database.execute("SELECT * FROM movies WHERE title = ?", [keyword])
+  when "year"
+    results = database.execute("SELECT * FROM movies WHERE year = ?", [keyword])
+  when "director"
+    results = database.execute("SELECT * FROM movies WHERE director = ?", [keyword])
+  when "actor"
+    results = database.execute("SELECT * FROM movies WHERE starring = ?", [keyword])
+  when "rating"
+    results = database.execute("SELECT * FROM movies")
   else
-    results.each do |result|
-      puts "---"
-      puts "#{result['title']} | #{result['year']}. Directed by #{result['director']} and starring #{result['starring']}. Your rating: #{result['rating']} stars."
-    end
+    results = false
   end
-end
 
-def movie_year_search(database, year)
-  results = database.execute("SELECT * FROM movies WHERE year = ?", [year])
-
-  if results.empty?
-    puts "No results found, try again."
-  else
-    results.each do |result|
-      puts "---"
-      puts "#{result['title']} | #{result['year']}. Directed by #{result['director']} and starring #{result['starring']}. Your rating: #{result['rating']} stars."
-    end
-  end
-end
-
-def movie_director_search(database, director)
-  results = database.execute("SELECT * FROM movies WHERE director = ?", [director])
-
-  if results.empty?
-    puts "No results found, try again."
-  else
-    results.each do |result|
-      puts "---"
-      puts "#{result['title']} | #{result['year']}. Directed by #{result['director']} and starring #{result['starring']}. Your rating: #{result['rating']} stars."
-    end
-  end
-end
-
-def movie_starring_search(database, starring)
-  results = database.execute("SELECT * FROM movies WHERE starring = ?", [starring])
-
-  if results.empty?
+  if !results
+    puts "Sorry, try again with 'title', 'year', 'director', 'actor', or 'rating'."
+  elsif results.empty?
     puts "No results found, try again."
   else
     results.each do |result|
@@ -111,7 +87,7 @@ puts "Welcome to your Movie Collection!"
 until finished
   puts "------------------------------------------"
   puts "Type 'new' to add a movie, 'delete' to remove one, or 'search' to look a movie up."
-  puts "You can also view your entire movie collection by typing 'all' or 'done' to finish."
+  puts "You can also view your entire movie collection by typing 'all', or 'done' to finish."
   user_action = gets.chomp.downcase
 
   if user_action == "new"
@@ -145,32 +121,14 @@ until finished
     p "OK, would you like to search by title, year, director, actor, or by rating?"
     search_type = gets.chomp.downcase
 
-    if search_type == "title"
-      p "Alright, what title would you like to search for?"
-      title = gets.chomp.split.map(&:capitalize).join(' ')
-      movie_title_search(movie_db, title)
-
-    elsif search_type == "year"
-      p "Alright, what year would you like to search for?"
-      year = gets.chomp.to_i
-      movie_year_search(movie_db, year)
-
-    elsif search_type == "director"
-      p "Alright, what director would you like to search for?"
-      director = gets.chomp.split.map(&:capitalize).join(' ')
-      movie_director_search(movie_db, director)
-
-    elsif search_type == "actor"
-      p "Alright, what actor would you like to search for?"
-      actor = gets.chomp.split.map(&:capitalize).join(' ')
-      movie_starring_search(movie_db, actor)
-
-    elsif search_type == "rating"
-      p "What's the minimun rating you'd like to search for? (1-5)"
+    if search_type == "rating"
+      p "Alright, what's the minimun rating you'd like to search for? (1-5)"
       rating = gets.chomp.to_i
       movie_rating_search(movie_db, rating)
     else
-      puts "Sorry, try again."
+      p "Alright, what #{search_type} would you like to search for?"
+      keyword = gets.chomp.split.map(&:capitalize).join(' ')
+      movie_search(movie_db, search_type, keyword)
     end
   elsif user_action == "all"
     all_movies(movie_db)
