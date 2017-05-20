@@ -28,6 +28,21 @@ def delete_movie(database, title)
   database.execute("DELETE FROM movies WHERE title = ?", [title])
 end
 
+def update_movie(database, type, update, title)
+  case type
+  when "title"
+    database.execute("UPDATE movies SET title = ? WHERE title = ?", [update, title])
+  when "year"
+    database.execute("UPDATE movies SET year = ? WHERE title = ?", [update, title])
+  when "director"
+    database.execute("UPDATE movies SET director = ? WHERE title = ?", [update, title])
+  when "actor"
+    database.execute("UPDATE movies SET starring = ? WHERE title = ?", [update, title])
+  when "rating"
+    database.execute("UPDATE movies SET rating = ? WHERE title = ?", [update, title])
+  end
+end
+
 def all_movies(database)
   movies = database.execute("SELECT * FROM movies")
 
@@ -81,12 +96,11 @@ def movie_rating_search(database, rating)
 end
 
 finished = false
-
 puts "Welcome to your Movie Collection!"
 
 until finished
   puts "------------------------------------------"
-  puts "Type 'new' to add a movie, 'delete' to remove one, or 'search' to look a movie up."
+  puts "Type 'new' to add a movie, 'delete' to remove one, 'update' to make a change, or 'search' to look a movie up."
   puts "You can also view your entire movie collection by typing 'all', or 'done' to finish."
   user_action = gets.chomp.downcase
 
@@ -110,12 +124,28 @@ until finished
     add_movie(movie_db, title, year, director, starring, rating)
 
   elsif user_action == "delete"
-
     p "OK, which movie would you like to delete?"
     title = gets.chomp.split.map(&:capitalize).join(' ')
 
     p "#{title} was deleted."
     delete_movie(movie_db, title)
+
+  elsif user_action == "update"
+    p "Alright, what's the title of the movie you'd like to update?"
+    title = gets.chomp.split.map(&:capitalize).join(' ')
+
+    p "What about #{title} would you like to change? You can type 'title', 'year', 'director', 'starring', or 'rating'."
+    type = gets.chomp.downcase
+
+    p "And what would you like to change #{title}'s #{type} to?"
+    update = gets.chomp.split.map(&:capitalize).join(' ')
+
+    if type == "year" || "rating"
+      update.to_i
+    end
+
+    update_movie(movie_db, type, update, title)
+    p "Great, #{type} was changed to #{update}!"
 
   elsif user_action == "search"
     p "OK, would you like to search by title, year, director, actor, or by rating?"
