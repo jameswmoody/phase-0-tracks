@@ -135,17 +135,17 @@ until finished
     title = gets.chomp.split.map(&:capitalize).join(' ')
 
     p "What about #{title} would you like to change? You can type 'title', 'year', 'director', 'starring', or 'rating'."
-    type = gets.chomp.downcase
+    update_type = gets.chomp.downcase
 
-    p "And what would you like to change #{title}'s #{type} to?"
-    update = gets.chomp.split.map(&:capitalize).join(' ')
+    p "And what would you like to change #{title}'s #{update_type} to?"
+    update_value = gets.chomp.split.map(&:capitalize).join(' ')
 
-    if type == "year" || "rating"
-      update.to_i
+    if update_type == "year" || "rating"
+      update_value.to_i
     end
 
-    update_movie(movie_db, type, update, title)
-    p "Great, #{type} was changed to #{update}!"
+    update_movie(movie_db, update_type, update_value, title)
+    p "Great, #{title}'s #{update_type} was changed to #{update_value}!"
 
   elsif user_action == "search"
     p "OK, would you like to search by title, year, director, actor, or by rating?"
