@@ -17,6 +17,8 @@ function enlargePhoto (event) {
   var node = document.createTextNode("Doesn't this look delicious!");
   para.appendChild(node);
 
+  console.log('Photo is enlarged when user mouses over image and adds paragraph')
+
   var element = document.getElementById("food");
   element.appendChild(para);
 }
