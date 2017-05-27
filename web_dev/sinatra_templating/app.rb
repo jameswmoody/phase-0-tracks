@@ -24,4 +24,11 @@ post '/students' do
   redirect '/'
 end
 
+get '/campus/:campus' do
+  campus = params['campus'].upcase
+  @campus_name = campus
+  @students = db.execute("SELECT * FROM students WHERE campus=?",[campus])
+  erb :campus_sf
+end
+
 # add static resources
