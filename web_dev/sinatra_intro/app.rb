@@ -72,3 +72,19 @@ get '/search/:name' do
   student.to_s
 
 end
+
+# Release 1: Research on Your Own
+#
+# 1. Is Sinatra the only web app library in Ruby? What are some others?
+#
+# Other web app libraries and frameworks for Ruby include Ruby on Rails, Rack, and Padrino.
+#
+# 2. Are SQLite and the sqlite3 gem your only options for using a database with Sinatra? What are some others?
+#
+# PostgreSQL is also a popular database option that can be used with Sinatra.
+#
+# 3. What is meant by the term web stack?
+#
+# A web stack is a collection of software needed for web development. The Ruby stack
+# typically includes  Ruby/Ruby on Rails/RVM/MySQL/Apache/PHP
+#
