@@ -7,7 +7,7 @@ window.addEventListener('scroll', function () {
     $('.nav-link').css('color', '#6E6F73')
   } else {
     $('.navbar-default').css('background-color', 'transparent')
-    $('.navbar-default').css('border-bottom', 'none')
+    $('.navbar-default').css('border-bottom', 'solid rgba(0, 0, 0, 0.0) 1px')
     $('.navbar-brand').css('color', '#fff')
     $('.nav-link').css('color', '#fff')
   }

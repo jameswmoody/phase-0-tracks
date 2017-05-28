@@ -17,7 +17,7 @@ html {
   font-family: 'Muli', sans-serif;
   font-size: 11px;
   border: none;
-  border-color: #E5E5E5;
+  border-color: rgba(0, 0, 0, 0.0);
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:hover {
