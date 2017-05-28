@@ -1,0 +1,77 @@
+html {
+  background-color: #cbcbcb;
+}
+
+.spacer {
+  height: 1000px;
+  background-color: #cbcbcb;
+}
+
+
+/* Navbar */
+
+.navbar-default {
+  background-color: transparent;
+  transition: border-color 0s;
+  transition: 0.5s;
+  font-family: 'Muli', sans-serif;
+  font-size: 11px;
+  border: none;
+  border-color: #E5E5E5;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a:hover {
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.navbar-brand {
+  padding-top: 15px;
+}
+
+.navbar-nav>li>a {
+  height: 50px;
+  padding-bottom: 5px;
+}
+
+.border-one:hover {
+  border-bottom: solid $global-color-one;
+}
+
+.border-two:hover {
+  border-bottom: solid $global-color-two;
+}
+
+.border-three:hover {
+  border-bottom: solid $global-color-three;
+}
+
+.border-four:hover {
+  border-bottom: solid $global-color-four;
+}
+
+.border-five:hover {
+  border-bottom: solid $global-color-five;
+}
+
+.navbar-toggle {
+  margin-top: 10px;
+}
+
+.nav-link-dropdown {
+  margin-right: 15px;
+}
+
+.dropdown-menu {
+  margin-right: 15px;
+  min-width: 95px;
+  border: none;
+  border-radius: 0;
+  li>a {
+    padding: 3px 15px;
+  }
+}
+
+.dropdown-header {
+  padding: 3px 15px;
+}
